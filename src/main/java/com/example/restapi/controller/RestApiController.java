@@ -1,9 +1,7 @@
 package com.example.restapi.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.restapi.model.BookQueryParam;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -14,11 +12,37 @@ public class RestApiController {
         return html;
     }
 
-    @GetMapping(path = "/echo/{message}")
+    @GetMapping(path = "/echo/{message}/{age}/{isMan}")
     public String echo(
-            @PathVariable(name="message") String msg
+            @PathVariable(name="message") String msg,
+            @PathVariable int age,
+            @PathVariable boolean isMan
     ){
         System.out.println("echo message : "+msg);
+        System.out.println("echo age : "+age);
+        System.out.println("echo isMan : "+isMan);
         return msg;
+    }
+
+    @GetMapping(path = "/book")
+    public String book(
+            @RequestParam String category,
+            @RequestParam String issuedYear,
+            @RequestParam(name="issued-month") String issuedMonth,
+            @RequestParam String issued_day
+    ){
+        System.out.println("echo category : "+category);
+        System.out.println("echo issuedYear : "+issuedYear);
+        System.out.println("echo issuedMonth : "+issuedMonth);
+        System.out.println("echo issued_day : "+issued_day);
+        return "hello";
+    }
+
+    @GetMapping(path = "/book2")
+    public String book2(
+            BookQueryParam bookQueryParam
+    ){
+        System.out.println("echo category : "+bookQueryParam);
+        return "hello";
     }
 }
