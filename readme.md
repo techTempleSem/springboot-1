@@ -1,3 +1,7 @@
+# tool
+
+talend api tester :크롬 확장 프로그램. 직접 쿼리를 날릴 수 있다. 
+
 # annotation
 
 -   @RestController : restApi 기능을 하는 클래스를 지정한다.
@@ -49,3 +53,9 @@ public String book2(
         BookQueryParam bookQueryParam
 ){
 ```
+
+## postMapping
+
+post는 객체를 받는다
+
+- @RequestBody: http body로 들어오는 데이터를 해당 객체에 받는다.
