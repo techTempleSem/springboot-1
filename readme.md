@@ -73,3 +73,17 @@ boolean isKorean 이런 식으로 불리언 변수명에 is가 앞에 붙으면 
 해결책
 1. korean으로 요청
 2. Boolean으로 선언
+
+## deleteMapping
+
+위와 같다
+
+get, post, put, delete 모두 비슥한 형식을 띈다.
+
+다음처럼 여러 uri를 쓰게 할 수 있다.
+```
+@DeleteMapping(path = {
+"/user/{userName}/delete",
+"/user/{userName}/del"
+})
+```
