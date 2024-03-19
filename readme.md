@@ -12,6 +12,7 @@ talend api tester :크롬 확장 프로그램. 직접 쿼리를 날릴 수 있�
 - @Data : get, set, 기본 생성자를 만들어 준다. 롬복의 기능 
 - @AllArgsConstructor : 모든 파라미터를 받는 생성자를 만든다. @Data와 함께 쓰면 기본 생성자는 사라진다.
 - @NoArgsConstructor : 기본 생성자를 만들어 준다.
+- @Slf4j : 로그 기록
 
 ## getMapping
 
@@ -56,7 +57,19 @@ public String book2(
 
 ## postMapping
 
+데이터가 없으면 넣고  이미 있으면 그대로
+
 post는 객체를 받는다
 
 - @RequestBody: http body로 들어오는 데이터를 해당 객체에 받는다.
 - @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class): 스케니크 케이스로 넘겨줘도 객체에서는 카멜로 받음
+
+## putMapping
+
+데이터가 없으면 넣고  이미 있으면 업데이트
+
+boolean isKorean 이런 식으로 불리언 변수명에 is가 앞에 붙으면 setIsKorean이 아니라 setKorean으로 인식함.
+
+해결책
+1. korean으로 요청
+2. Boolean으로 선언
