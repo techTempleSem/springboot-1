@@ -59,3 +59,4 @@ public String book2(
 post는 객체를 받는다
 
 - @RequestBody: http body로 들어오는 데이터를 해당 객체에 받는다.
+- @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class): 스케니크 케이스로 넘겨줘도 객체에서는 카멜로 받음
