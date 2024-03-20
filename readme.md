@@ -5,6 +5,8 @@ talend api tester :크롬 확장 프로그램. 직접 쿼리를 날릴 수 있�
 # annotation
 
 -   @RestController : restApi 기능을 하는 클래스를 지정한다.
+- @Controller : json 응답이 아니라 모든 응답을 내릴 수 있다.
+- @ResponseBody : @Controller가 있을 때 json으로 응답을 내리겠다고 명시해 준다.
 
 -   @RequestMapping("/api") : 이 주소로 오는 일들을 처리한다.
 
@@ -13,6 +15,9 @@ talend api tester :크롬 확장 프로그램. 직접 쿼리를 날릴 수 있�
 - @AllArgsConstructor : 모든 파라미터를 받는 생성자를 만든다. @Data와 함께 쓰면 기본 생성자는 사라진다.
 - @NoArgsConstructor : 기본 생성자를 만들어 준다.
 - @Slf4j : 로그 기록
+- @Autowired: 스프링에서 관리하는 빈 들 중에 자동으로 생성되는 오브젝트를 가져온다.
+
+# Mapping
 
 ## getMapping
 
@@ -87,3 +92,15 @@ get, post, put, delete 모두 비슥한 형식을 띈다.
 "/user/{userName}/del"
 })
 ```
+
+# 직열화, 역직열화
+
+```
+@Autowired
+private ObjectMapper objectMapper;
+```
+
+꼭 선언해야 함
+
+- 직열화 : var json = objectMapper.writeValueAsString(user);
+- 역직열화 : var dto = objectMapper.readValue(json, UserRequest.class);
