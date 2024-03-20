@@ -103,4 +103,11 @@ private ObjectMapper objectMapper;
 꼭 선언해야 함
 
 - 직열화 : var json = objectMapper.writeValueAsString(user);
+
+변수가 아니라 get메소드에 영향을 받는다. userName 변수가 있고 getPersonUser(){return userName} 이 있으면 person_user으로 직열화 된다.
+
+@JsonIgnore: 직열화 할 때 영향을 미치지 않게 하겠다.
+
+@JsonProperty("asd"): 해당 변수를 "asd"로 바꾸겠다.
+
 - 역직열화 : var dto = objectMapper.readValue(json, UserRequest.class);

@@ -15,10 +15,10 @@ public class ResponseApiController {
     @GetMapping
     @ResponseBody
     public UserRequest user(){
-        var user = new UserRequest();
-        user.setUserName("sem");
-        user.setUserAge(10);
-        user.setEmail("sem");
+        var user = new UserRequest("sem",10,"sem",true);
+//        user.setUserName("sem");
+//        user.setUserAge(10);
+//        user.setEmail("sem");
 
         log.info("user : {}",user);
 
